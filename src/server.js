@@ -1,9 +1,10 @@
+import qs from "qs";
 import path from "path";
 import Express from "express";
 import React from "react";
 import { renderToString } from "react-dom/server";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
+import configureStore from "./store/configureStore";
 import counterApp from "./reducers";
 import App from "./containers/App";
 
@@ -18,16 +19,23 @@ app.use(handleRender);
 
 // We are going to fill these out in the sections to follow
 function handleRender(req, res) {
-  const store = createStore(counterApp);
+  const params = qs.parse(req.query);
+  const counter = parseint(params.counter, 10) || 0;
+
+  let preloadedState = { counter };
+
+  const store = configureStore(preloadedState);
+
   const html = renderToString(
     <Provider store={store}>
       <App />
     </Provider>
   );
 
-  const preloadedState = store.getState();
+  // Grab the initial state from our Redux store
+  const finalState = store.getState();
 
-  res.send(renderFullPage(html, preloadedState));
+  res.send(renderFullPage(html, finalState));
 }
 
 function renderFullPage(html, preloadedState) {
