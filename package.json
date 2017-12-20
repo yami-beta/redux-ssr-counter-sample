@@ -10,8 +10,8 @@
     "watch:server": "babel src/server.js -o dist/server.js -w",
     "build:client": "webpack",
     "watch:client": "webpack-dev-server",
-    "build": "NODE_ENV=production npm-run-all build:*",
-    "watch": "NODE_ENV=development npm-run-all watch:*"
+    "build": "NODE_ENV=production npm-run-all -p build:*",
+    "watch": "NODE_ENV=development npm-run-all -p watch:*"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
