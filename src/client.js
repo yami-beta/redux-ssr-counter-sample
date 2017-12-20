@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "react-dom";
+import { hydrate } from "react-dom";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 import App from "./containers/App";
@@ -13,7 +13,7 @@ delete window.__PRELOADED_STATE__;
 // Create Redux store with initial state
 const store = configureStore(preloadedState);
 
-render(
+hydrate(
   <Provider store={store}>
     <App />
   </Provider>,

@@ -6,8 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build:server": "babel src/server.js -o dist/server.js",
-    "watch:server": "babel src/server.js -o dist/server.js -w",
+    "start": "babel-node src/server.js",
     "build:client": "webpack",
     "watch:client": "webpack-dev-server",
     "build": "NODE_ENV=production npm-run-all -p build:*",
@@ -22,6 +21,7 @@
     "npm-run-all": "^4.1.2",
     "prettier": "^1.9.2",
     "webpack": "^3.10.0",
+    "webpack-dev-middleware": "^2.0.2",
     "webpack-dev-server": "^2.9.7"
   },
   "dependencies": {
