@@ -1,4 +1,5 @@
-dist/
+dist/*
+!dist/index.html
 
 ### https://raw.github.com/github/gitignore/86e01548dd97d6a1b5fc9ad303f10111b17ce0a9/Node.gitignore
 
