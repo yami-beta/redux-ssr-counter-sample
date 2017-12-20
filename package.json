@@ -1,0 +1,35 @@
+{
+  "name": "redux-ssr-counter-sample",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "yami_beta <yami-beta@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build:server": "babel src/server.js -o dist/server.js",
+    "watch:server": "babel src/server.js -o dist/server.js -w",
+    "build:client": "webpack",
+    "watch:client": "webpack-dev-server",
+    "build": "NODE_ENV=production npm-run-all build:*",
+    "watch": "NODE_ENV=development npm-run-all watch:*"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "npm-run-all": "^4.1.2",
+    "prettier": "^1.9.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  }
+}
